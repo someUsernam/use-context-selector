@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "ES2021",
+    "module": "ESNext",
+    "strict": true,
+    "lib": ["ESNext", "DOM"],
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "bundler"
+  },
+  "include": [
+    "src",
+    "tsup.config.ts",
+    "vitest.config.ts",
+    "src/test/vitest.d.ts"
+  ],
+  "exclude": ["node_modules"]
+}
