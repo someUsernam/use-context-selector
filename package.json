@@ -4,25 +4,32 @@
   "description": "A context selector for React",
   "main": "src/index.tsx",
   "type": "module",
-  "files": [
-    "dist"
-  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
     "@eslint/js": "^9.20.0",
     "@types/react": "^18.3.18",
+    "@vitejs/plugin-react": "^4.3.4",
     "eslint": "^9.20.1",
     "eslint-plugin-react": "^7.37.4",
     "globals": "^15.15.0",
     "publint": "^0.3.5",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "tsup": "^8.3.6",
     "typescript": "^5.7.3",
     "typescript-eslint": "^8.24.0",
+    "vite": "^6.1.0",
+    "vite-plugin-dts": "^4.5.0",
     "vitest": "^3.0.5"
   },
   "scripts": {
-    "build": "vite build && publint --strict"
+    "dev": "vite",
+    "lint": "eslint . --ext .ts,.tsx",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build": "tsc && vite build && publint --strict && pnpm build:types",
+    "test": "vitest",
+    "prepare": "npm run build && pnpm build:types"
   },
   "keywords": [
     "react",
@@ -39,20 +46,14 @@
   ],
   "author": "Artur Wójtowicz",
   "license": "MIT",
-  "publishConfig": {
-    "access": "public"
-  },
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "exports": {
     ".": {
-      "import": {
-        "types": "./dist/esm/index.d.ts",
-        "default": "./dist/esm/index.js"
-      },
-      "require": {
-        "types": "./dist/cjs/index.d.cts",
-        "default": "./dist/cjs/index.cjs"
-      }
-    },
-    "./package.json": "./package.json"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/use-context-state-selector.es.js"
+    }
   }
 }

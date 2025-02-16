@@ -7,14 +7,16 @@
     "jsx": "react-jsx",
     "esModuleInterop": true,
     "skipLibCheck": true,
+    "rootDir": "src",
+    "outDir": "dist",
+    "emitDeclarationOnly": true,
+    "declaration": true,
+    "declarationDir": "dist",
     "forceConsistentCasingInFileNames": true,
-    "moduleResolution": "bundler"
+    "moduleResolution": "bundler",
   },
   "include": [
     "src",
-    "tsup.config.ts",
-    "vitest.config.ts",
-    "src/test/vitest.d.ts"
   ],
   "exclude": ["node_modules"]
 }
