@@ -1,6 +1,6 @@
 {
   "name": "use-context-selector",
-  "version": "1.0.0",
+  "version": "2.0.1",
   "description": "A context selector for React",
   "main": "src/index.tsx",
   "type": "module",
